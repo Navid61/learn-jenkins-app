@@ -17,8 +17,6 @@ pipeline {
                     rm -rf node_modules
                     npm cache clean --force
                     npm install
-                    npm ci
-                    npm run build
                     ls -la
                     '''
                
