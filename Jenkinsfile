@@ -9,17 +9,16 @@ pipeline {
                 }
             }
             steps {
-                    // Display the current directory and Node.js versions
-                    sh '''
-                    ls -la
-                    node --version
-                    npm --version
-                    rm -rf node_modules
-                    npm cache clean --force
-                    npm install
-                    ls -la
-                    '''
-               
+                script {
+                    echo 'Starting Build Stage'
+                }
+                sh 'ls -la'
+                sh 'node --version'
+                sh 'npm --version'
+                sh 'rm -rf node_modules'
+                sh 'npm cache clean --force'
+                sh 'npm install'
+                sh 'ls -la'
             }
         }
     }
