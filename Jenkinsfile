@@ -9,12 +9,6 @@ pipeline {
                 }
             }
             steps {
-           
-                    sh 'npm cache clean --force'
-                    sh 'npm ci'
-                    // Optional cleanup step to ensure a clean workspace before build
-                    sh 'rm -rf node_modules' // Only if needed to ensure a clean state
-
                     // Display the current directory and Node.js versions
                     sh '''
                     ls -la
