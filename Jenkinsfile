@@ -9,9 +9,6 @@ pipeline {
                     reuseNode true
                 }
             }
-            environment {
-                NPM_CACHE_DIR = "${env.WORKSPACE}/.npm" // Set a writable npm cache directory
-            }
             steps {
                 script {
                     echo 'Starting Build Stage'
@@ -19,11 +16,7 @@ pipeline {
                 sh 'ls -la'
                 sh 'node --version'
                 sh 'npm --version'
-                sh '''
-                    mkdir -p $NPM_CACHE_DIR
-                    npm config set cache $NPM_CACHE_DIR
-                    npm ci
-                '''
+                sh 'npm ci'
                 sh 'ls -la'
             }
         }
